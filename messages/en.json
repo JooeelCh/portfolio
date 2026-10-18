@@ -1,0 +1,141 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "stack": "Stack",
+    "projects": "Projects",
+    "theme": "Theme",
+    "themeToggle": "Toggle theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "language": "Language"
+  },
+
+  "Hero": {
+    "availability": {
+      "available": "Available",
+      "busy": "Unavailable"
+    },
+    "role": "Systems Engineering Student & Fullstack Developer",
+    "cv": "Resume",
+    "contact": "Let's talk",
+    "photoAlt": "Portrait of Joel Chubrega",
+    "githubLabel": "GitHub (opens in a new tab)",
+    "linkedinLabel": "LinkedIn (opens in a new tab)"
+  },
+
+  "About": {
+    "title": "About me",
+    "p1": "I'm an Information Systems Engineering student and Full Stack developer with experience building custom web applications and digital solutions tailored to each client's needs.",
+    "p2": "I focus on building solid, scalable and maintainable web products, choosing the technologies and tools best suited to each project.",
+    "p3": "I'm also constantly learning through my own projects, exploring new technologies, design patterns and software architectures to broaden my knowledge, keep improving my development practices and strengthen my professional profile.",
+    "card": {
+      "title": "whoami",
+      "rows": {
+        "role": { "label": "role", "value": "Full Stack Developer" },
+        "education": {
+          "label": "education",
+          "value": "Information Systems Engineering"
+        },
+        "location": { "label": "location", "value": "Argentina" },
+        "focus": { "label": "focus", "value": "Custom web applications" },
+        "openTo": {
+          "label": "open to",
+          "value": "Freelance projects and employment"
+        }
+      }
+    },
+    "cta": {
+      "text": "I'm open to new professional opportunities and challenges that let me contribute my technical skills, gain new experience and keep growing in the world of software development.",
+      "button": "Let's talk"
+    }
+  },
+
+  "Stack": {
+    "title": "Tech stack",
+    "categories": {
+      "frontend": { "title": "Frontend", "subtitle": "Interface and web experience" },
+      "backend": { "title": "Backend & Data", "subtitle": "Logic, services and persistence" },
+      "tools": { "title": "Tools", "subtitle": "Development and workflow" }
+    },
+    "learning": {
+      "label": "Learning",
+      "show": "Show technologies I'm learning",
+      "hide": "Hide technologies I'm learning"
+    }
+  },
+
+  "Projects": {
+    "title": "Projects",
+    "previous": "Previous project",
+    "next": "Next project",
+    "position": "Project {current} of {total}",
+    "techLabel": "Technologies used",
+    "viewRepo": "View {title} repository",
+    "viewSite": "Visit {title} website",
+    "imageAlt": "Preview of {title}",
+    "noPreview": "No preview available"
+  },
+
+  "Contact": {
+    "title": "Contact",
+    "heading": "Let's connect",
+    "intro": "Looking to build a website or take an idea to the next level? I'm available to talk about your project and find the right solution.",
+    "cta": "Fill out the form below and tell me a bit more about your idea. I'll get back to you shortly.",
+    "socials": {
+      "github": "GitHub profile",
+      "linkedin": "LinkedIn profile",
+      "email": "Send an email"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "reason": "Reason",
+      "reasonPlaceholder": "Select a reason",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send",
+      "submitting": "Sending"
+    },
+    "reasons": {
+      "project": "Freelance project",
+      "job": "Job opportunity",
+      "other": "Other"
+    },
+    "errors": {
+      "nameMin": "Enter your name (at least 2 characters)",
+      "nameMax": "Name is too long (max 80 characters)",
+      "emailInvalid": "Enter a valid email address",
+      "reasonRequired": "Choose a reason",
+      "subjectMin": "Subject must be at least 3 characters",
+      "subjectMax": "Subject is too long (max 120 characters)",
+      "messageMin": "Message must be at least 10 characters",
+      "messageMax": "Message is too long (max 2000 characters)"
+    },
+    "toast": {
+      "success": {
+        "title": "Message sent",
+        "description": "Thanks for reaching out. I'll reply to the email you provided."
+      },
+      "error": {
+        "validation": {
+          "title": "Check the form",
+          "description": "Some fields contain invalid data. Fix them and try again."
+        },
+        "send_failed": {
+          "title": "Message couldn't be sent",
+          "description": "There was a problem with the email service. Try again in a few minutes or email me directly."
+        },
+        "network": {
+          "title": "No connection",
+          "description": "Couldn't reach the server. Check your connection and try again."
+        },
+        "unknown": {
+          "title": "Something went wrong",
+          "description": "An unexpected error occurred. Please try again later."
+        }
+      }
+    }
+  }
+}

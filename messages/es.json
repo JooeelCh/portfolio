@@ -1,0 +1,140 @@
+{
+    "Navbar": {
+        "home": "Inicio",
+        "about": "Sobre mi",
+        "contact": "Contacto",
+        "stack": "Stack",
+        "projects": "Proyectos",
+        "themeToggle": "Cambiar tema"
+    },
+
+    "Hero": {
+        "availability": {
+          "available": "Disponible",
+          "busy": "No disponible"
+        },
+        "role": "Estudiante de Ingeniería en Sistemas y Desarrollador Fullstack",
+        "cv": "Descargar CV",
+        "contact": "Hablemos",
+        "photoAlt": "Retrato de Joel Chubrega",
+        "githubLabel": "GitHub (se abre en una pestaña nueva)",
+        "linkedinLabel": "LinkedIn (se abre en una pestaña nueva)"
+    },
+
+    "About": {
+        "title": "Sobre mi",
+        "p1": "Soy estudiante de Ingeniería en Sistemas de Información y desarrollador Full Stack, con experiencia en el desarrollo de aplicaciones web a medida y soluciones digitales adaptadas a las necesidades de cada cliente.",
+        "p2": "Me enfoco en construir productos web sólidos, escalables y mantenibles, seleccionando las tecnologías y herramientas más adecuadas para cada proyecto.",
+        "p3": "Además, me encuentro en constante aprendizaje a través del desarrollo de proyectos propios, explorando nuevas tecnologías, patrones de diseño y arquitecturas de software con el objetivo de ampliar mis conocimientos y mejorar continuamente mis prácticas de desarrollo y fortalecer mi perfil profesional.",
+        "card": {
+            "title": "whoami",
+            "rows": {
+            "role": { "label": "rol", "value": "Desarrollador Full Stack" },
+            "education": {
+                "label": "formación",
+                "value": "Ingeniería en Sistemas de Información"
+            },
+            "location": { "label": "ubicación", "value": "Argentina" },
+            "focus": {
+                "label": "enfoque",
+                "value": "Aplicaciones web a medida"
+            },
+            "openTo": {
+                "label": "abierto a",
+                "value": "Proyectos freelance y empleo"
+            }
+            }
+        },
+        "cta": {
+            "text": "Estoy abierto a nuevas oportunidades profesionales y desafíos que me permitan aportar mis conocimientos técnicos, adquirir nuevas experiencias y seguir creciendo en el mundo del desarrollo de software.",
+            "button": "Hablemos"
+        }
+    },
+
+    "Stack": {
+        "title": "Stack tecnológico",
+        "categories": {
+            "frontend": { "title": "Frontend", "subtitle": "Interfaz y experiencia web" },
+            "backend": { "title": "Backend & Datos", "subtitle": "Lógica, servicios y persistencia" },
+            "tools": { "title": "Herramientas", "subtitle": "Desarrollo y flujo de trabajo" }
+        },
+        "learning": {
+            "label": "Estudiando",
+            "show": "Mostrar tecnologías que estoy aprendiendo",
+            "hide": "Ocultar tecnologías que estoy aprendiendo"
+        }
+    },
+
+    "Projects": {
+        "title": "Proyectos",
+        "previous": "Proyecto anterior",
+        "next": "Proyecto siguiente",
+        "position": "Proyecto {current} de {total}",
+        "techLabel": "Tecnologías utilizadas",
+        "viewRepo": "Ver repositorio de {title}",
+        "viewSite": "Visitar sitio de {title}",
+        "imageAlt": "Vista previa de {title}",
+        "noPreview": "Sin vista previa"
+    },
+
+    "Contact": {
+        "title": "Contacto",
+        "heading": "Conectemos",
+        "intro": "¿Buscas desarrollar una web o llevar una idea al siguiente nivel? Estoy disponible para conversar sobre tu proyecto y encontrar la solución adecuada.",
+        "cta": "Completa el siguiente formulario y cuéntame un poco más sobre tu idea. Me pondré en contacto contigo a la brevedad.",
+        "socials": {
+            "github": "Perfil de GitHub",
+            "linkedin": "Perfil de LinkedIn",
+            "email": "Enviar un correo"
+        },
+        "form": {
+            "name": "Nombre",
+            "email": "Correo",
+            "reason": "Motivo",
+            "reasonPlaceholder": "Selecciona un motivo",
+            "subject": "Asunto",
+            "message": "Mensaje",
+            "submit": "Enviar",
+            "submitting": "Enviando"
+        },
+        "reasons": {
+            "project": "Proyecto freelance",
+            "job": "Oportunidad laboral",
+            "other": "Otro"
+        },
+        "errors": {
+            "nameMin": "Ingresa tu nombre (mínimo 2 caracteres)",
+            "nameMax": "El nombre es demasiado largo (máximo 80 caracteres)",
+            "emailInvalid": "Ingresa un correo válido",
+            "reasonRequired": "Elige un motivo",
+            "subjectMin": "El asunto debe tener al menos 3 caracteres",
+            "subjectMax": "El asunto es demasiado largo (máximo 120 caracteres)",
+            "messageMin": "El mensaje debe tener al menos 10 caracteres",
+            "messageMax": "El mensaje es demasiado largo (máximo 2000 caracteres)"
+        },
+        "toast": {
+            "success": {
+                "title": "Mensaje enviado",
+                "description": "Gracias por escribir. Responderé al correo que indicaste."
+            },
+            "error": {
+                "validation": {
+                    "title": "Revisa el formulario",
+                    "description": "Hay campos con datos inválidos. Corrígelos e inténtalo de nuevo."
+                  },
+                  "send_failed": {
+                    "title": "No se pudo enviar el mensaje",
+                    "description": "Hubo un problema con el servicio de correo. Inténtalo de nuevo en unos minutos o escríbeme directamente por correo."
+                  },
+                  "network": {
+                    "title": "Sin conexión",
+                    "description": "No se pudo contactar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+                  },
+                  "unknown": {
+                    "title": "Algo salió mal",
+                    "description": "Ocurrió un error inesperado. Inténtalo de nuevo más tarde."
+                }
+            }
+        }
+    }
+}

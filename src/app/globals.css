@@ -1,26 +1,285 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-title: var(--font-bitcount);
+  --font-heading: var(--font-geist-mono);
+  --font-text: var(--font-geist-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-title;
+  }
+
+  p {
+    @apply font-text;
+  }
+
+  a,
+  span {
+    @apply font-heading
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility section-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1400px;
 }
+
+:root {
+  /* Paleta base (light) */
+  --background: #f5f2f7;
+  --foreground: #0f0218;
+  --primary: #44394c;
+  --secondary: #ab89c2;
+  --accent: #b06be1;
+
+  /* Derivados */
+  --primary-foreground: #f5f2f7;
+  --secondary-foreground: #0f0218;
+  --accent-foreground: #0f0218;
+  --card: #fbf9fc;
+  --card-foreground: var(--foreground);
+  --popover: #fbf9fc;
+  --popover-foreground: var(--foreground);
+  --muted: color-mix(in oklab, var(--secondary) 18%, var(--background));
+  --muted-foreground: color-mix(in oklab, var(--foreground) 62%, var(--background));
+  --border: color-mix(in oklab, var(--primary) 18%, var(--background));
+  --input: color-mix(in oklab, var(--primary) 18%, var(--background));
+  --ring: var(--accent);
+  --destructive: oklch(0.577 0.245 27.325);
+  --radius: 0.625rem;
+}
+
+.dark {
+  /* Paleta base (dark) */
+  --background: #0b080d;
+  --foreground: #f4e7fd;
+  --primary: #beb3c6;
+  --secondary: #5f3d76;
+  --accent: #631e94;
+
+  /* Derivados */
+  --primary-foreground: #0b080d;
+  --secondary-foreground: #f4e7fd;
+  --accent-foreground: #f4e7fd;
+  --card: #140f17;
+  --card-foreground: var(--foreground);
+  --popover: #140f17;
+  --popover-foreground: var(--foreground);
+  --muted: color-mix(in oklab, var(--secondary) 25%, var(--background));
+  --muted-foreground: color-mix(in oklab, var(--foreground) 65%, var(--background));
+  --border: color-mix(in oklab, var(--primary) 20%, var(--background));
+  --input: color-mix(in oklab, var(--primary) 20%, var(--background));
+  --ring: #b06be1;
+  --destructive: oklch(0.704 0.191 22.216);
+}
+
+/* BACKGROUND */
+@layer components {
+
+  /* Glow anclado a la costura entre dos secciones.
+     glow-bottom: el pico queda en el borde inferior (hero, projects).
+     glow-top: el pico queda en el borde superior (about, contact).
+     Ambos usan la misma función en px/clamp, así que son espejo exacto. */
+  .glow-top,
+  .glow-bottom {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--background);
+    background-image:
+      radial-gradient(min(70vw, 1000px) clamp(360px, 75dvh, 700px) at 72% var(--glow-y),
+        color-mix(in oklab, var(--accent) 88%, transparent) 0%,
+        color-mix(in oklab, var(--accent) 86%, transparent) 10%,
+        color-mix(in oklab, var(--accent) 80%, transparent) 20%,
+        color-mix(in oklab, var(--accent) 70%, transparent) 30%,
+        color-mix(in oklab, var(--accent) 58%, transparent) 40%,
+        color-mix(in oklab, var(--accent) 44%, transparent) 50%,
+        color-mix(in oklab, var(--accent) 30%, transparent) 60%,
+        color-mix(in oklab, var(--accent) 18%, transparent) 70%,
+        color-mix(in oklab, var(--accent) 8%, transparent) 80%,
+        color-mix(in oklab, var(--accent) 2%, transparent) 90%,
+        transparent 100%),
+      radial-gradient(min(95vw, 1370px) clamp(300px, 65dvh, 590px) at 38% var(--glow-y),
+        color-mix(in oklab, var(--accent) 50%, transparent) 0%,
+        color-mix(in oklab, var(--accent) 49%, transparent) 10%,
+        color-mix(in oklab, var(--accent) 45%, transparent) 20%,
+        color-mix(in oklab, var(--accent) 40%, transparent) 30%,
+        color-mix(in oklab, var(--accent) 33%, transparent) 40%,
+        color-mix(in oklab, var(--accent) 25%, transparent) 50%,
+        color-mix(in oklab, var(--accent) 17%, transparent) 60%,
+        color-mix(in oklab, var(--accent) 10%, transparent) 70%,
+        color-mix(in oklab, var(--accent) 5%, transparent) 80%,
+        color-mix(in oklab, var(--accent) 1%, transparent) 90%,
+        transparent 100%);
+  }
+
+  .glow-top {
+    --glow-y: 0%;
+    --noise-dir: to bottom;
+  }
+
+  .glow-bottom {
+    --glow-y: 100%;
+    --noise-dir: to top;
+  }
+
+  /* Ruido anti-banding: va detrás del contenido (z-index -1 dentro del
+     contexto aislado) y se desvanece hacia el lado que toca Stack. */
+  .glow-top::after,
+  .glow-bottom::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mask-image: linear-gradient(var(--noise-dir), #000 35%, transparent 85%);
+  }
+}
+
+/* HERO */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid color-mix(in oklab, var(--hero-text) 75%, transparent);
+  border-radius: 9999px;
+  color: var(--hero-text);
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 2.25rem;
+  border-radius: 0.75rem;
+  background: var(--secondary);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.hero-btn:hover {
+  filter: brightness(1.12);
+  transform: translateY(-1px);
+}
+
+.hero-btn:focus-visible {
+  outline: 2px solid var(--hero-text);
+  outline-offset: 3px;
+}
+
+.hero-btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+}
+
+.hero-photo {
+  box-shadow: 0 30px 60px -24px color-mix(in oklab, var(--hero-accent) 40%, black);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-reveal {
+    animation: hero-reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-d1 {
+    animation-delay: 0.05s;
+  }
+
+  .hero-d2 {
+    animation-delay: 0.15s;
+  }
+
+  .hero-d3 {
+    animation-delay: 0.25s;
+  }
+
+  .hero-d4 {
+    animation-delay: 0.35s;
+  }
+
+  .hero-photo {
+    animation: hero-photo 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-btn {
+    transition: none;
+  }
+
+  .hero-btn:hover {
+    transform: none;
+  }
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-photo {
+  from {
+    transform: scale(0.94);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* ABOUT */
