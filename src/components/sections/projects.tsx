@@ -7,11 +7,10 @@ export async function Projects() {
   const projects = getProjects(locale);
 
   return (
-    // id="projects": lo usa el scroll spy del Navbar.
     <section
       id="projects"
       aria-labelledby="projects-title"
-      className="glow-bottom flex min-h-dvh w-full flex-col px-6 pb-16 pt-28 md:px-12"
+      className="glow-top flex min-h-dvh w-full flex-col px-6 pb-16 pt-28 md:px-12"
     >
       <div className="section-container flex flex-1 flex-col gap-8">  
         <h2

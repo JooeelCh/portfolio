@@ -1,12 +1,10 @@
 import type { Variants } from "motion/react";
 
-/** Contenedor de las 3 cards: las hace entrar una tras otra. */
 export const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
 };
 
-/** Card: entra y luego dispara el stagger de sus tiles. */
 export const cardVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: {
@@ -21,7 +19,6 @@ export const cardVariants: Variants = {
   },
 };
 
-/** Tile individual (también lo usan los tiles de "aprendiendo"). */
 export const tileVariants: Variants = {
   hidden: { opacity: 0, y: 12, scale: 0.96 },
   visible: {
@@ -30,10 +27,4 @@ export const tileVariants: Variants = {
     scale: 1,
     transition: { duration: 0.35, ease: "easeOut" },
   },
-};
-
-/** Lista de tiles "aprendiendo": stagger propio al abrir el toggle. */
-export const learningListVariants: Variants = {
-  hidden: {},
-  visible: { transition: { delayChildren: 0.1, staggerChildren: 0.05 } },
 };

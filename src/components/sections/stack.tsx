@@ -13,12 +13,11 @@ export function Stack() {
   const [showLearning, setShowLearning] = useState(false);
 
   return (
-    // reducedMotion="user": con "reducir movimiento" solo queda el fade (sin y/scale)
     <MotionConfig reducedMotion="user">
       <section
         id="stack"
         aria-labelledby="stack-title"
-        className="scroll-mt-24 px-6 py-24 sm:py-28 md:px-12"
+        className="glow-bottom scroll-mt-24 px-6 py-24 sm:py-28 md:px-12"
       >
         <div className="section-container">
           <div className="flex flex-wrap items-center justify-between gap-6">

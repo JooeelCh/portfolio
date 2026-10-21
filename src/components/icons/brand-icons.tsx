@@ -1,7 +1,5 @@
 import type { SVGProps } from "react"
 
-// lucide-react 1.x eliminó los íconos de marca. Paths de Simple Icons (CC0).
-// Misma API que lucide: className="size-6", hereda el color con currentColor.
 type IconProps = SVGProps<SVGSVGElement>
 
 export function GithubIcon(props: IconProps) {

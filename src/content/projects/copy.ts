@@ -3,17 +3,12 @@ import type { ProjectCopy } from "./schema";
 
 export type ContentLocale = "es" | "en";
 
-/**
- * Textos por idioma. `Record<ProjectSlug, …>` hace que TypeScript marque error
- * si agregás un proyecto en data.ts y te olvidás de traducirlo.
- * Máximo 260 caracteres por descripción (lo valida Zod).
- */
 export const projectsCopy: Record<ContentLocale, Record<ProjectSlug, ProjectCopy>> = {
   es: {
-    "mock-ecommerce": {
-      title: "Tienda online demo",
+    "ale-construcciones": {
+      title: "Web Institucional Aleconstrucciones",
       description:
-        "Tienda con catálogo, carrito y checkout pensada para pequeños comercios. Se genera de forma estática para cargar rápido y permite actualizar productos sin tocar código.",
+        "Sitio web institucional con muestra de servicios, proyectos e identidad de la marca, monitoreado y actualizado desde un panel de administracion propio.",
     },
     "mock-whatsapp-bot": {
       title: "Bot de atención por WhatsApp",
@@ -32,10 +27,10 @@ export const projectsCopy: Record<ContentLocale, Record<ProjectSlug, ProjectCopy
     },
   },
   en: {
-    "mock-ecommerce": {
-      title: "Demo online store",
+    "ale-construcciones": {
+      title: "Aleconstrucciones Institutional Website",
       description:
-        "Store with catalog, cart and checkout built for small businesses. It's statically generated for fast loads and lets owners update products without touching code.",
+        "Institutional website showcasing services, projects, and brand identity, monitored and updated from its own administration panel.",
     },
     "mock-whatsapp-bot": {
       title: "WhatsApp support bot",

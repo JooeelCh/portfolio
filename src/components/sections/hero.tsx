@@ -2,9 +2,8 @@ import Image from "next/image"
 import { getLocale, getTranslations } from "next-intl/server"
 import { GithubIcon, LinkedinIcon } from "@/components/icons/brand-icons"
 import { heroContent } from "@/content/hero"
+import { File, MessageCircle } from "lucide-react"
 
-// Server Component: sin JS de cliente. Las animaciones de entrada son CSS puro.
-// El id="hero" es el que espera useActiveSection (scroll spy del navbar).
 export async function Hero() {
   const t = await getTranslations("Hero")
   const locale = await getLocale()
@@ -18,11 +17,22 @@ export async function Hero() {
       className="hero glow-bottom flex min-h-dvh items-center overflow-hidden px-6 md:px-12"
     >
       <div className="section-container relative z-10 grid items-center gap-10 pt-28 pb-16 lg:grid-cols-2 lg:gap-8 lg:pt-24">
-        {/* Texto: en mobile va debajo de la foto */}
         <div className="order-2 flex flex-col items-start gap-3 lg:order-1">
-          <span className="hero-badge hero-mono hero-reveal hero-d1">
-            {isAvailable ? t("availability.available") : t("availability.busy")}
-          </span>
+          <span className="hero-badge hero-mono hero-reveal hero-d1 gap-2.5 px-4 py-1">
+              <span aria-hidden="true" className="relative flex size-2.5">
+                {isAvailable && (
+                  <span className="absolute inset-0 rounded-full bg-status-available motion-safe:animate-status-pulse" />
+                )}
+                <span
+                  className={
+                    isAvailable
+                      ? "relative size-2.5 rounded-full bg-status-available shadow-[0_0_8px_var(--status-available)]"
+                      : "relative size-2.5 rounded-full bg-status-busy shadow-[0_0_8px_var(--status-busy)]"
+                  }
+                />
+              </span>
+              {isAvailable ? t("availability.available") : t("availability.busy")}
+            </span>
 
           <h1
             id="hero-title"
@@ -36,10 +46,12 @@ export async function Hero() {
           </p>
 
           <div className="hero-reveal hero-d4 mt-5 flex flex-wrap items-center gap-3">
-            <a href={cvHref} download className="hero-btn">
+            <a href={cvHref} download className="btn gap-1.5">
+              <File  width={20} height={20}/>
               {t("cv")}
             </a>
-            <a href="#contact" className="hero-btn">
+            <a href="#contact" className="btn gap-1.5">
+              <MessageCircle width={20} height={20} />
               {t("contact")}
             </a>
             <a
@@ -47,7 +59,7 @@ export async function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("githubLabel")}
-              className="hero-btn hero-btn-icon"
+              className="btn btn-icon"
             >
               <GithubIcon className="size-6" />
             </a>
@@ -56,14 +68,13 @@ export async function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("linkedinLabel")}
-              className="hero-btn hero-btn-icon"
+              className="btn btn-icon"
             >
               <LinkedinIcon className="size-6" />
             </a>
           </div>
         </div>
 
-        {/* Foto: es el LCP, por eso priority y sin animar opacidad */}
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
           <div className="hero-photo relative aspect-square w-[min(70vw,20rem)] overflow-hidden rounded-full lg:w-full lg:max-w-xl">
             <Image

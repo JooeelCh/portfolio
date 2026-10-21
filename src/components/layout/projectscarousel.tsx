@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import type { Project } from "@/content/projects";
 import { ProjectCard } from "./projectcard";
 
-type Direction = 1 | -1; // 1 = siguiente (flecha ↓), -1 = anterior (flecha ↑)
+type Direction = 1 | -1;
 
 const OFFSET = 24;
 
@@ -42,7 +42,6 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
       return next < 0 || next >= total ? s : { index: next, direction: dir };
     });
 
-  // Solo captura ↑/↓ cuando hay a dónde ir: en los extremos deja scrollear la página.
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowDown" && canNext) {
       e.preventDefault();
@@ -57,7 +56,6 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
   const position = t("position", { current: index + 1, total });
 
   return (
-    // "user" → con prefers-reduced-motion se anula el desplazamiento y queda solo el fade.
     <MotionConfig reducedMotion="user">
       <div
         role="region"
@@ -68,7 +66,6 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
         className="flex flex-col gap-6 rounded-2xl outline-none focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-accent"
       >
         <div className="relative flex justify-center">
-          {/* aria-disabled (y no disabled) para no perder el foco al llegar al extremo */}
           <button
             type="button"
             aria-label={t("previous")}
@@ -78,7 +75,6 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
           >
             <ChevronUp className="size-8" strokeWidth={1.25} aria-hidden />
           </button>
-          {/* Contador visual (se puede borrar sin afectar nada más) */}
           <span
             aria-hidden
             className="absolute right-0 top-1/2 -translate-y-1/2 font-mono text-sm tabular-nums text-text/70"

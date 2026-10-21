@@ -1,4 +1,8 @@
 {
+    "Metadata": {
+        "description": "Portfolio de Joel, desarrollador web freelance. Sitios web, automatizaciones y bots a medida con Next.js para negocios de Latinoamérica."
+    },
+
     "Navbar": {
         "home": "Inicio",
         "about": "Sobre mi",
@@ -27,12 +31,13 @@
         "p2": "Me enfoco en construir productos web sólidos, escalables y mantenibles, seleccionando las tecnologías y herramientas más adecuadas para cada proyecto.",
         "p3": "Además, me encuentro en constante aprendizaje a través del desarrollo de proyectos propios, explorando nuevas tecnologías, patrones de diseño y arquitecturas de software con el objetivo de ampliar mis conocimientos y mejorar continuamente mis prácticas de desarrollo y fortalecer mi perfil profesional.",
         "card": {
-            "title": "whoami",
+            "title": "~$ whoami",
+            "cta": "cd proyectos",
             "rows": {
             "role": { "label": "rol", "value": "Desarrollador Full Stack" },
             "education": {
                 "label": "formación",
-                "value": "Ingeniería en Sistemas de Información"
+                "value": "Ingeniería en Sistemas"
             },
             "location": { "label": "ubicación", "value": "Argentina" },
             "focus": {
@@ -46,8 +51,8 @@
             }
         },
         "cta": {
-            "text": "Estoy abierto a nuevas oportunidades profesionales y desafíos que me permitan aportar mis conocimientos técnicos, adquirir nuevas experiencias y seguir creciendo en el mundo del desarrollo de software.",
-            "button": "Hablemos"
+            "text": "Estoy abierto a nuevas oportunidades profesionales y desafíos que me permitan aportar mis conocimientos técnicos, adquirir nuevas experiencias y seguir creciendo en el mundo IT y del desarrollo de software.",
+            "button": "Conectemos"
         }
     },
 
@@ -135,6 +140,18 @@
                     "description": "Ocurrió un error inesperado. Inténtalo de nuevo más tarde."
                 }
             }
+        }
+    },
+
+    "Footer": {
+        "copyright": "© {year} Joel Chubrega",
+        "backToTop": "Volver arriba",
+        "navLabel": "Navegación del pie de página",
+        "socialLabel": "Redes y contacto",
+        "social": {
+            "github": "GitHub (se abre en una pestaña nueva)",
+            "linkedin": "LinkedIn (se abre en una pestaña nueva)",
+            "email": "Enviar un correo"
         }
     }
 }

@@ -1,7 +1,6 @@
 import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
-// La "tecla": una píldora que se hunde 2px al presionar mientras su sombra se achica
 export const slideSwitchClass = cn(
     "group/switch relative inline-flex shrink-0 items-center rounded-full p-0.5",
     "border border-foreground/15 bg-foreground/5",

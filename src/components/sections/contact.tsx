@@ -21,7 +21,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-title"
-      className="glow-top flex min-h-dvh w-full flex-col px-6 pt-28 pb-20 md:px-12 md:pt-36"
+      className="glow-bottom flex min-h-dvh w-full flex-col px-6 pt-28 pb-20 md:px-12 md:pt-36"
     >
       <div className="section-container">
         <h2 id="contact-title" className="text-5xl md:text-6xl">

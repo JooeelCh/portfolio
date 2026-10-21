@@ -6,11 +6,8 @@ import { cn } from "@/lib/utils";
 type Props = {
   pressed: boolean;
   onToggle: () => void;
-  /** Texto visible (desde sm): "Aprendiendo" */
   label: string;
-  /** Nombre accesible constante: "Mostrar tecnologías que estoy aprendiendo" */
   ariaLabel: string;
-  /** Texto del tooltip según el estado */
   tooltip: string;
   className?: string;
 };
@@ -41,7 +38,6 @@ export function LearningToggle({
       <GraduationCap className="size-7" aria-hidden="true" />
       <span className="hidden font-mono text-sm sm:inline">{label}</span>
 
-      {/* Tooltip decorativo: el nombre accesible ya lo da aria-label */}
       <span
         aria-hidden="true"
         className="pointer-events-none absolute right-0 top-full z-10 mt-2 hidden whitespace-nowrap rounded-md border border-[color-mix(in_oklab,var(--secondary)_40%,transparent)] bg-[var(--background)] px-2.5 py-1.5 font-mono text-xs text-[var(--text)] opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 sm:block"

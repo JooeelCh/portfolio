@@ -3,42 +3,20 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Send } from "lucide-react";
 import { useTranslations } from "next-intl";
-import {
-  Controller,
-  useForm,
-  type Control,
-  type FieldError as RHFError,
-} from "react-hook-form";
+import { Controller, useForm, type Control, type FieldError as RHFError } from "react-hook-form";
 import { toast } from "sonner";
-
 import { sendContactMessage, type ContactResult } from "@/actions/contact";
 import { Button } from "@/components/ui/button";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  CONTACT_REASONS,
-  contactSchema,
-  type ContactInput, } from "@/lib/schemas/contact";
+import { CONTACT_REASONS, contactSchema, type ContactInput, } from "@/lib/schemas/contact";
 import { cn } from "@/lib/utils";
 
 type ErrorCode = Exclude<ContactResult, { ok: true }>["code"] | "network";
 
-/**
- * Estados de los controles (paleta del sitio):
- * default  → borde foreground/35 · hover → /60
- * focus    → borde primary + halo accent (primary mantiene contraste ≥3:1 en light y dark)
- * error    → destructive (vía aria-invalid)
- * disabled → opacity 50 + cursor-not-allowed
- */
 const controlClass = cn(
   "h-11 rounded-md border border-foreground/35 bg-transparent px-3 font-sans text-base shadow-none md:text-sm",
   "dark:bg-transparent",
@@ -58,13 +36,7 @@ type TextFieldProps = {
   autoComplete?: string;
 };
 
-function TextField({
-  control,
-  name,
-  label,
-  type = "text",
-  autoComplete,
-}: TextFieldProps) {
+function TextField({ control, name, label, type = "text", autoComplete }: TextFieldProps) {
   const t = useTranslations("Contact");
   const id = `contact-${name}`;
 
@@ -127,7 +99,6 @@ export function ContactForm() {
     try {
       result = await sendContactMessage(values);
     } catch {
-      // La action ni siquiera respondió (sin conexión, timeout, etc.).
       toastError("network");
       return;
     }
@@ -151,7 +122,6 @@ export function ContactForm() {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-      {/* fieldset disabled deshabilita todos los controles mientras se envía */}
       <fieldset
         disabled={isSubmitting}
         className="relative grid min-w-0 gap-6 sm:grid-cols-2"
@@ -190,11 +160,12 @@ export function ContactForm() {
                   aria-invalid={fieldState.invalid}
                   className={cn(
                     controlClass,
-                    // shadcn fija la altura con data-[size=default]:h-9
                     "w-full data-[size=default]:h-11",
                   )}
                 >
-                  <SelectValue placeholder={t("form.reasonPlaceholder")} />
+                  <SelectValue placeholder={t("form.reasonPlaceholder")}>
+                    {field.value ? t(`reasons.${field.value}`) : t("form.reasonPlaceholder")}
+                  </SelectValue>
                 </SelectTrigger>
                 <SelectContent>
                   {CONTACT_REASONS.map((reason) => (
@@ -226,18 +197,18 @@ export function ContactForm() {
                 {...field}
                 id="contact-message"
                 aria-invalid={fieldState.invalid}
-                className={cn(controlClass, "h-auto min-h-[200px] py-3")}
+                className={cn(controlClass, "h-auto min-h-50 py-3")}
               />
               <FieldError errors={errorsFor(fieldState.error)} />
             </Field>
           )}
         />
 
-        {/* Honeypot: invisible e inalcanzable para personas; los bots lo rellenan */}
+        {/* Honeypot */}
         <div
           aria-hidden
           inert
-          className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+          className="absolute left-[9999px] h-0 w-0 overflow-hidden"
         >
           <label htmlFor="contact-website">Website</label>
           <input
@@ -254,7 +225,7 @@ export function ContactForm() {
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="h-10 rounded-full bg-secondary px-6 font-mono text-xs uppercase tracking-wider text-foreground hover:bg-secondary/80 disabled:opacity-70"
+            className="h-10 rounded-full bg-secondary px-6 font-heading text-xs uppercase tracking-wider text-foreground hover:bg-secondary/80 disabled:opacity-70"
           >
             {isSubmitting ? t("form.submitting") : t("form.submit")}
             {isSubmitting ? <Spinner /> : <Send aria-hidden />}

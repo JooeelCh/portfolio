@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { clearPendingTarget, getPendingTarget, replaceHash } from "@/lib/hash"
 
 export const SECTION_IDS = ["hero", "about", "stack", "projects", "contact"] as const
 export type SectionId = (typeof SECTION_IDS)[number]
@@ -6,6 +7,7 @@ export type SectionId = (typeof SECTION_IDS)[number]
 export function useActiveSection() {
     const [active, setActive] = useState<SectionId>("hero")
     const [ready, setReady] = useState(false)
+    const lastSeen = useRef<SectionId | null>(null)
 
     useEffect(() => {
         const elements = SECTION_IDS
@@ -13,7 +15,6 @@ export function useActiveSection() {
             .filter((el): el is HTMLElement => el !== null)
         if (elements.length === 0) return
 
-        // Banda de 1% de alto a ~45% del viewport: la sección que la cruza es la activa
         let first = true
         const observer = new IntersectionObserver(
             (entries) => {
@@ -22,7 +23,6 @@ export function useActiveSection() {
                 }
                 if (first) {
                     first = false
-                    // "ready" llega un frame después: la primera carga no se anima
                     requestAnimationFrame(() => setReady(true))
                 }
             },
@@ -30,7 +30,6 @@ export function useActiveSection() {
         )
         elements.forEach((el) => observer.observe(el))
 
-        // Respaldo: si la última sección es corta, nunca cruza la banda
         const last = elements[elements.length - 1]
         const onScroll = () => {
             const atBottom =
@@ -44,6 +43,23 @@ export function useActiveSection() {
             window.removeEventListener("scroll", onScroll)
         }
     }, [])
+
+    useEffect(() => {
+        if (!ready) return
+
+        if (lastSeen.current === null) {
+            lastSeen.current = active
+            return
+        }
+        if (lastSeen.current === active) return
+        lastSeen.current = active
+
+        const pending = getPendingTarget()
+        if (pending && pending !== active) return
+
+        clearPendingTarget()
+        replaceHash(active)
+    }, [active, ready])
 
     return { active, ready }
 }

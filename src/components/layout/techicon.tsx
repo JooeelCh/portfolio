@@ -6,7 +6,6 @@ type Props = {
   className?: string;
 };
 
-/** SVG monocromo: hereda el color del texto (currentColor). */
 export function TechIcon({ icon, className }: Props) {
   return (
     <svg

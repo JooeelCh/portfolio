@@ -7,7 +7,7 @@ import { siCursor, siPostman, siFigma, siNotion, siGit, siDocker, siN8n } from "
 
 /**
  * Solo hacen falta `title` y `path`. Si una marca no existe en Simple Icons
- * (ej. LinkedIn), podés pasar un SVG propio: { title: "X", path: "M0 0h24v24H0z" }
+ * (ej. LinkedIn), se usa un SVG propio: { title: "X", path: "M0 0h24v24H0z" }
  * (path en viewBox 0 0 24 24).
  */
 export type TechIcon = Pick<SimpleIcon, "title" | "path">;
@@ -22,7 +22,6 @@ export type TechItem = {
 export type StackCategoryId = "frontend" | "backend" | "tools";
 
 export type StackCategory = {
-  /** Define las claves de i18n: Stack.categories.<id>.title / .subtitle */
   id: StackCategoryId;
   icon: LucideIcon;
   items: readonly TechItem[];

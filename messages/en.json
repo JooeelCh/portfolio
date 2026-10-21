@@ -1,4 +1,8 @@
 {
+  "Metadata": {
+    "description": "Joel's portfolio: freelance web developer building websites, automations and custom bots with Next.js for businesses across Latin America."
+  },
+
   "Navbar": {
     "home": "Home",
     "about": "About",
@@ -17,26 +21,27 @@
       "available": "Available",
       "busy": "Unavailable"
     },
-    "role": "Systems Engineering Student & Fullstack Developer",
+    "role": "Software Engineering Student & Fullstack Developer",
     "cv": "Resume",
     "contact": "Let's talk",
-    "photoAlt": "Portrait of Joel Chubrega",
+    "photoAlt": "Hero Avatar",
     "githubLabel": "GitHub (opens in a new tab)",
     "linkedinLabel": "LinkedIn (opens in a new tab)"
   },
 
   "About": {
     "title": "About me",
-    "p1": "I'm an Information Systems Engineering student and Full Stack developer with experience building custom web applications and digital solutions tailored to each client's needs.",
+    "p1": "I'm an Software Engineering student and Full Stack developer with experience building custom web applications and digital solutions tailored to each client's needs.",
     "p2": "I focus on building solid, scalable and maintainable web products, choosing the technologies and tools best suited to each project.",
     "p3": "I'm also constantly learning through my own projects, exploring new technologies, design patterns and software architectures to broaden my knowledge, keep improving my development practices and strengthen my professional profile.",
     "card": {
-      "title": "whoami",
+      "title": "~$ whoami",
+      "cta": "cd projects",
       "rows": {
         "role": { "label": "role", "value": "Full Stack Developer" },
         "education": {
           "label": "education",
-          "value": "Information Systems Engineering"
+          "value": "Software Engineering"
         },
         "location": { "label": "location", "value": "Argentina" },
         "focus": { "label": "focus", "value": "Custom web applications" },
@@ -48,7 +53,7 @@
     },
     "cta": {
       "text": "I'm open to new professional opportunities and challenges that let me contribute my technical skills, gain new experience and keep growing in the world of software development.",
-      "button": "Let's talk"
+      "button": "Connect with me"
     }
   },
 
@@ -136,6 +141,18 @@
           "description": "An unexpected error occurred. Please try again later."
         }
       }
+    }
+  },
+
+  "Footer": {
+    "copyright": "© {year} Joel Chubrega",
+    "backToTop": "Back to top",
+    "navLabel": "Footer navigation",
+    "socialLabel": "Social links and contact",
+    "social": {
+      "github": "GitHub (opens in a new tab)",
+      "linkedin": "LinkedIn (opens in a new tab)",
+      "email": "Send an email"
     }
   }
 }

@@ -23,7 +23,6 @@ export function ProjectCard({ project }: { project: Project }) {
 
   return (
     <article className="grid gap-2.5 lg:grid-cols-[36fr_64fr]">
-      {/* Info (angosta). En mobile va debajo de la imagen. */}
       <div className="order-2 flex flex-col rounded-[0_0_2rem_2rem] bg-gradient-to-b from-[color-mix(in_oklab,var(--secondary)_22%,transparent)] to-transparent p-6 sm:p-8 lg:order-1 lg:rounded-[2rem_0_0_2rem]">
         <h3 className="font-display text-2xl uppercase leading-tight text-text">{title}</h3>
         <p className="mt-5 font-mono text-[15px] leading-relaxed text-text">{description}</p>
@@ -68,8 +67,7 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </div>
       </div>
-
-      {/* Frame de la demo: 3:2 para capturas de escritorio, ancladas arriba. */}
+      
       <div className="relative order-1 aspect-3/2 overflow-hidden rounded-[2rem_2rem_0_0] lg:order-2 lg:rounded-[0_2rem_2rem_0]">
         {image ? (
           <Image
@@ -78,8 +76,7 @@ export function ProjectCard({ project }: { project: Project }) {
             fill
             sizes="(min-width: 1024px) 64vw, 100vw"
             className="object-cover object-top"
-            // next/image no optimiza SVG; los placeholders del mockup son SVG.
-            unoptimized={image.endsWith(".svg")}
+            unoptimized={image.endsWith(".avif")}
           />
         ) : (
           <div className="grid size-full place-items-center bg-linear-to from-secondary/30 to-transparent p-8 text-center">
