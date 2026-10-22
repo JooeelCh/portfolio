@@ -47,7 +47,7 @@ export function StackCategoryCard({
         </p>
       </motion.header>
 
-      <motion.ul layout className={cn(GRID, "pt-6")}>
+      <motion.ul layout className={cn(GRID, "grow content-start pt-6")}>
         {current.map((item) => (
           <TechTile key={item.name} item={item} />
         ))}

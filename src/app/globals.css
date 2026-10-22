@@ -69,6 +69,10 @@
   max-width: 1400px;
 }
 
+@utility glass-surface {
+  @apply border-foreground/10 bg-background/80 backdrop-blur-md;
+}
+
 :root {
   /* Paleta base (light) */
   --background: #f5f2f7;

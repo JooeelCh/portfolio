@@ -25,7 +25,7 @@ export default function Navbar() {
                     "fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_auto_1fr] items-center border-b px-6 py-4 transition-colors duration-300",
                     inHero
                         ? "border-transparent bg-transparent"
-                        : "border-foreground/10 bg-background/80 backdrop-blur-md"
+                        : "glass-surface"
                 )}
             >
                 <div className="col-start-1 row-start-1 justify-self-start">
