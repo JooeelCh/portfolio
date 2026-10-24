@@ -5,6 +5,8 @@
 
   "Navbar": {
     "home": "Home",
+    "menu": "Menu",
+    "closeMenu": "Close Menu",
     "about": "About",
     "contact": "Contact",
     "stack": "Stack",

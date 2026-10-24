@@ -124,7 +124,7 @@ export function ContactForm() {
     <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
       <fieldset
         disabled={isSubmitting}
-        className="relative grid min-w-0 gap-6 sm:grid-cols-2"
+        className="relative grid min-w-0 gap-x-6 gap-y-[clamp(1rem,2.6dvh,1.5rem)] sm:grid-cols-2"
       >
         <TextField
           control={form.control}
@@ -197,19 +197,17 @@ export function ContactForm() {
                 {...field}
                 id="contact-message"
                 aria-invalid={fieldState.invalid}
-                className={cn(controlClass, "h-auto min-h-50 py-3")}
+                className={cn(
+                  controlClass,
+                  "h-auto min-h-[clamp(7rem,20dvh,12.5rem)] max-h-64 overflow-y-auto py-3",
+                )}
               />
               <FieldError errors={errorsFor(fieldState.error)} />
             </Field>
           )}
         />
 
-        {/* Honeypot */}
-        <div
-          aria-hidden
-          inert
-          className="absolute left-[9999px] h-0 w-0 overflow-hidden"
-        >
+        <div aria-hidden inert className="sr-only">
           <label htmlFor="contact-website">Website</label>
           <input
             id="contact-website"
@@ -220,12 +218,12 @@ export function ContactForm() {
           />
         </div>
 
-        <div className="flex justify-end sm:col-span-2">
+        <div className="flex sm:col-span-2 sm:justify-end">
           <Button
             type="submit"
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="h-10 rounded-full bg-secondary px-6 font-heading text-xs uppercase tracking-wider text-foreground hover:bg-secondary/80 disabled:opacity-70"
+            className="h-11 w-full rounded-full bg-secondary px-6 font-heading text-xs uppercase tracking-wider text-foreground hover:bg-secondary/80 disabled:opacity-70 sm:h-10 sm:w-auto"
           >
             {isSubmitting ? t("form.submitting") : t("form.submit")}
             {isSubmitting ? <Spinner /> : <Send aria-hidden />}

@@ -5,6 +5,8 @@
 
     "Navbar": {
         "home": "Inicio",
+        "menu": "Menu",
+        "closeMenu": "Cerrar menu",
         "about": "Sobre mi",
         "contact": "Contacto",
         "stack": "Stack",

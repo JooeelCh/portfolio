@@ -98,6 +98,7 @@
   --radius: 0.625rem;
   --status-available: #15803d;
   --status-busy: #b91c1c;
+  --footer-overlap: 3rem;
 }
 
 .dark {
@@ -124,6 +125,12 @@
   --destructive: oklch(0.704 0.191 22.216);
   --status-available: #4ade80;
   --status-busy: #f87171;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --footer-overlap: 4.25rem;
+  }
 }
 
 /* BACKGROUND */
@@ -190,11 +197,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 2.25rem;
+  padding: 0.65rem var(--btn-px, 2.25rem);
   border-radius: 0.75rem;
   background: var(--secondary);
   color: var(--foreground);
-  font-size: 0.95rem;
+  font-size: var(--btn-fs, 0.95rem);
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -203,14 +210,21 @@
   transform: translateY(-1px);
 }
 
+@media (hover: hover) {
+  .btn:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+  }
+}
+
 .btn:focus-visible {
   outline: 2px solid var(--foreground);
   outline-offset: 3px;
 }
 
 .btn-icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--btn-icon, 2.5rem);
+  height: var(--btn-icon, 2.5rem);
   padding: 0;
 }
 

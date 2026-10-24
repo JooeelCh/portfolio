@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { TechIcon as TechIconData, TechItem } from "@/content/stack";
 import { cn } from "@/lib/utils";
-import { DashedBorder } from "../layout/dashedborder";
+import { DashedBorder } from "./dashedborder";
 import { TechIcon } from "./techicon";
 import { tileVariants } from "../../content/motion";
 

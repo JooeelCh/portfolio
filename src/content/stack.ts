@@ -5,11 +5,10 @@ import { siNextdotjs, siHtml5, siCss, siTailwindcss, siReact, siTypescript, siJa
 import { siPython, siNodedotjs, siCplusplus, siMysql, siPostgresql, siFastapi, siExpress }  from "simple-icons"
 import { siCursor, siPostman, siFigma, siNotion, siGit, siDocker, siN8n } from "simple-icons"
 
-/**
- * Solo hacen falta `title` y `path`. Si una marca no existe en Simple Icons
- * (ej. LinkedIn), se usa un SVG propio: { title: "X", path: "M0 0h24v24H0z" }
- * (path en viewBox 0 0 24 24).
- */
+
+// Solo hacen falta `title` y `path`. Si una marca no existe en Simple Icons
+// se usa un SVG propio: { title: "X", path: "M0 0h24v24H0z" } (path en viewBox 0 0 24 24).
+
 export type TechIcon = Pick<SimpleIcon, "title" | "path">;
 
 export type TechItem = {

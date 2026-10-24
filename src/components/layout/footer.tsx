@@ -16,7 +16,7 @@ export async function Footer() {
     const year = new Date().getFullYear()
 
     return (
-        <footer className="glass-surface relative z-10 -mt-12 border-t px-6 py-4 text-sm text-foreground/60 md:-mt-17">
+        <footer className="glass-surface relative z-10 -mt-(--footer-overlap) border-t px-6 py-4 text-sm text-foreground/60">
             <div className="flex flex-col items-center gap-6 md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4">
                 <div className="flex flex-col items-center gap-1 text-center md:items-start md:text-left">
                     <p>{t("copyright", { year })}</p>

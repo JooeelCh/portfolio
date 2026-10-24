@@ -8,6 +8,7 @@ import { useActiveSection } from "@/lib/hooks/useSection"
 import { cn } from "@/lib/utils"
 import LanguageSwitcher from "./languageswitcher"
 import ThemeSwitcher from "./themeswitcher"
+import MobileMenu from "./mobilemenu"
 
 const links = ["about", "stack", "projects", "contact"] as const
 
@@ -17,6 +18,7 @@ export default function Navbar() {
     const t = useTranslations("Navbar")
     const { active, ready } = useActiveSection()
     const inHero = active === "hero"
+    const items = links.map((id) => ({ id, label: t(id) }))
 
     return (
         <MotionConfig reducedMotion="user" transition={ready ? spring : { duration: 0 }}>
@@ -43,7 +45,7 @@ export default function Navbar() {
                                     className="flex gap-1 items-center rounded-md p-1 text-foreground/60 transition-colors hover:text-foreground"
                                 >
                                     <House className="size-5" />
-                                    <p>{t("home")}</p>
+                                    <p className="hidden sm:block">{t("home")}</p>
                                 </Link>
                             </motion.div>
                         )}
@@ -53,7 +55,7 @@ export default function Navbar() {
                 <motion.nav
                     layout="position"
                     className={cn(
-                        "row-start-1",
+                        "row-start-1 hidden md:block",
                         inHero ? "col-start-1 justify-self-start" : "col-start-2 justify-self-center"
                     )}
                 >
@@ -89,6 +91,7 @@ export default function Navbar() {
                 <div className="col-start-3 row-start-1 flex items-center gap-4 justify-self-end">
                     <ThemeSwitcher />
                     <LanguageSwitcher />
+                    <MobileMenu items={items} active={active} />
                 </div>
             </header>
         </MotionConfig>
